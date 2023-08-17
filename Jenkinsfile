@@ -10,6 +10,21 @@ pipeline {
             }
         }
 
+        stage('Test Dependencies') {
+
+            agent { docker { image 'python:slim' } }
+
+            steps {
+
+                echo "Installing Dependencies..."
+
+                script {
+                    sh "pip install -r requirements.txt"
+                }
+
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 
