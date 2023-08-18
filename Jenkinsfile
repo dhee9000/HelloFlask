@@ -41,6 +41,14 @@ pipeline {
             }
         }
 
+        stage('Report Success') {
+            steps {
+                script {
+                    echo "PIPELINE COMPLETE"
+                }
+            }
+        }
+
     }
 
 }
